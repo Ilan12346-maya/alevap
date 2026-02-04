@@ -57,15 +57,20 @@ There is still a lot of work ahead.
 
 ## Build Requirements
 
-Recommended (Termux-based workflow):
-- **Termux** (Essential for the bundling process)
-- **Android SDK** (Command-line tools)
-- **Android NDK** (Termux version recommended)
-- **Ninja** (`pkg install ninja`) - Essential for CMake builds
-- **CMake** (`pkg install cmake`)
-- **ADB** (optional but highly recommended for auto-deployment)
+To build this project entirely within Termux, you need the following environment:
 
-While Android Studio can be used for general development, the **`bundlelibs.py`** script (typically invoked via `build.sh`) **must** be executed inside a Termux environment. This script is responsible for pulling, patching, and preparing the Linux userland libraries directly from your Termux installation.
+### 1. Required Termux Packages
+Install these via `pkg install`:
+- **General Build Tools:** `pkg install python cmake ninja git findutils sed grep binutils`
+- **Java Development:** `pkg install openjdk-17` (or openjdk-21)
+- **Android NDK:** `pkg install android-ndk`
+- **Optional:** `pkg install adb` (for deployment)
+
+### 2. External Dependencies
+- **Android SDK:** Command-line tools must be installed (usually in `~/androidsdk`).
+- **AAPT2:** The build uses the system-native aapt2 (included in most Termux environments or available via `pkg install aapt2`).
+
+While Android Studio can be used for general development, the **`bundlelibs.py`** script (typically invoked via `build.sh`) **must** be executed inside a Termux environment. This script pulls, patches, and prepares the Linux userland libraries directly from your Termux installation.
 
 ## Included Scripts
 
