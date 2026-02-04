@@ -130,7 +130,9 @@ Run `./build.sh` to clean, bundle, patch, and compile. If ADB is active, it will
 
 ## Developer's Mission & Community
 
-While I take issues and feedback seriously, please understand that this is a personal passion project. My primary technical goal is to have **Need for Speed Underground (NFSU)** running as a native-feeling standalone Android app.
+While I think issues and feedback are great and I take them seriously, please understand that this is a personal passion project. My primary technical goal remains getting **Need for Speed Underground (NFSU)** to run as a native-feeling standalone Android app.
+
+I am sharing this framework and everything I discover along the way because I don't want others to have to rack their brains as much as I did. 
 
 Feel free to fork this, tear it apart, and build your own things. If you have a great idea but aren't sure how to implement the code, I highly recommend asking an AI like **Gemini** or **Claude** to help you navigate the logic—that's how a lot of this framework was optimized!
 
