@@ -1,5 +1,8 @@
 # Termux X11 Standalone Android App Framework
 
+![Screenshot](https://i.ibb.co/qFXJsjg6/Screenshot-20260204-220716.jpg)
+![Screenshot](https://i.ibb.co/jv5NS6MM/Screenshot-20260204-220645.jpg)
+
 This project is an experimental framework for turning a Termux X11 environment into a standalone Android app with a native app feeling.
 
 The goal is to lower the barrier for running Linux/X11 software on Android. Instead of requiring users to install Termux, configure emulators, and deal with complex setups, the result should feel like a normal Android app: install it, use it, uninstall it.
