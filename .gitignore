@@ -1,0 +1,12 @@
+*.iml
+.gradle
+/.idea
+/build
+/captures
+.externalNativeBuild
+.cxx
+/app/build
+/shell-loader/build
+/shell-loader/stub/build
+*.apk
+*.jks

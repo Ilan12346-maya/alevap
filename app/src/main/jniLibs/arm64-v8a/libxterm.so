@@ -1,0 +1,2 @@
+#!/data/data/com.alevap/files/usr/bin/sh
+exec /data/data/com.alevap/files/usr/bin/aterm +tr "${@}"
