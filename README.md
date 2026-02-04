@@ -63,7 +63,7 @@ To build this project entirely within Termux, you need the following environment
 Install these via `pkg install`:
 - **General Build Tools:** `pkg install python cmake ninja git findutils sed grep binutils`
 - **Java Development:** `pkg install openjdk-17` (or openjdk-21)
-- **Android NDK:** This project is built using the optimized [termux-ndk](https://github.com/lzhiyong/termux-ndk). Follow the instructions there to install it (usually via their custom repository).
+- **Android NDK:** This project is built using the optimized [termux-ndk](https://github.com/lzhiyong/termux-ndk). Follow the instructions there to install it.
 - **Optional:** `pkg install adb` (for deployment)
 
 ### 2. External Dependencies
