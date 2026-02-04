@@ -97,35 +97,38 @@ Modern Android versions enforce strict "W^X" (Write XOR Execute) policies, which
 To turn a Linux tool into a standalone Android app using this framework, follow these steps:
 
 #### 1. Customize the Package Identity
-Use the `renamepackage.py` script to change the application ID from `com.alevap` to your desired name (e.g., `com.myuser.mygame`). This ensures your app is unique and doesn't conflict with other installations.
+Use the `renamepackage.py` script to change the application ID. 
+
+**CRITICAL LIMITATION:** Your new package name **MUST be exactly 10 characters long** (just like `com.alevap`). 
+*   *Why?* The binary patching engine performs direct string replacement in pre-compiled binaries. To preserve binary offsets and avoid crashing the app, the character count must remain identical. (e.g., `com.mytool`). This is a technical shortcut that might be improved later, but for now, it's a hard requirement.
 
 #### 2. Import Binaries and Libraries
 Place your Linux binaries and their `.so` dependencies into the project structure.
-- **Binaries:** Should be placed in the bundling directory. The system will rename them to `lib[name].so` during the build process. This is a requirement for Android's package manager to extract them with the necessary execution permissions.
-- **Assets:** Non-executable data (configs, icons, game files) should go into `app/src/main/assets/bootstrap`.
+- **Binaries:** Should be placed in the bundling directory. The system will rename them to `lib[name].so` during the build process for proper execution permissions.
+- **Assets:** Non-executable data should go into `app/src/main/assets/bootstrap`.
 
 #### 3. Configure the Startup Sequence
-Open `MainActivity.java` and locate the `launchJWM()` method. This is where the internal X server is initialized. To launch a specific app instead of a general desktop environment:
-- Update the `ProcessBuilder` commands to point to your main binary.
-- Ensure necessary environment variables (like `DISPLAY=:1`, `HOME`, and `LD_LIBRARY_PATH`) are correctly exported in the wrapper scripts created by the app at runtime.
+Open `MainActivity.java` and locate the `launchJWM()` method. Update the `ProcessBuilder` commands to point to your main binary and ensure environment variables are set correctly.
 
 #### 4. Adjust local.properties
-The build system is designed to work inside Termux. You must ensure `local.properties` correctly points to your local Android SDK installation:
-```properties
-sdk.dir=/data/data/com.termux/files/home/androidsdk
-android.aapt2FromMavenOverride=/data/data/com.termux/files/usr/bin/aapt2
-```
+Ensure `local.properties` correctly points to your local Android SDK and AAPT2 path within Termux.
 
 ### Build and Deployment
-Run `./build.sh` to trigger the automated pipeline.
-- It will clean the previous environment.
-- It will pull libraries from your Termux system, patch them, and bundle them into the APK.
-- If you have `adb` installed and your phone is in developer mode, it will automatically install and launch the app.
+Run `./build.sh` to clean, bundle, patch, and compile. If ADB is active, it will auto-deploy.
+
+---
+
+## Developer's Mission & Community
+
+While I take issues and feedback seriously, please understand that this is a personal passion project. My primary technical goal is to have **Need for Speed Underground (NFSU)** running as a native-feeling standalone Android app.
+
+Feel free to fork this, tear it apart, and build your own things. If you have a great idea but aren't sure how to implement the code, I highly recommend asking an AI like **Gemini** or **Claude** to help you navigate the logic—that's how a lot of this framework was optimized!
 
 ### Limitations
 - **Experimental:** This is not a production-ready container solution. It is a hackable framework for enthusiasts.
 - **Hardware Acceleration:** Full GPU support is a work in progress.
 - **SDK Version:** While we target SDK 28 for execution support, the app can still be installed on newer Android versions.
+
 
 ---
 
