@@ -14,7 +14,7 @@ BOLD='\033[1m'
 PACKAGE_NAME="com.alevap"
 ACTIVITY_NAME="com.alevap.MainActivity"
 # Since splits are enabled, the APK name might vary. We'll search for it.
-FINAL_APK="alevjd_debug.apk"
+FINAL_APK="alevap_debug.apk"
 ADB="$PREFIX/bin/adb"
 AAPT2="$PREFIX/bin/aapt2"
 GRADLE_FILE="app/build.gradle"
