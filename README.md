@@ -1,5 +1,8 @@
 # Termux X11 Standalone Android App Framework
 
+> [!IMPORTANT]
+> This is the **WIP / Development branch** (`wip`). For the latest stable base, please check the `master` branch.
+
 ![Screenshot](https://i.ibb.co/qFXJsjg6/Screenshot-20260204-220716.jpg)
 ![Screenshot](https://i.ibb.co/jv5NS6MM/Screenshot-20260204-220645.jpg)
 
